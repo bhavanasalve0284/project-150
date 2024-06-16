@@ -1,0 +1,39 @@
+from tkinter import *
+import random
+
+root=Tk()
+root.title("Luck friend Wheet")
+root.geometry("500x500")
+
+entre_name = Entry(root)
+entre_name.place(relx=0.5,rely = 0.2,anchor = CENTRE)
+
+friend_list = Label(root)
+random_number_label = Label(root)
+lucky_friend = Label(root)
+
+list1 =[]
+def addfriend():
+friend_name= entre_name.get()
+list1.append(friend_name)
+friend_list["text"] = "Your friendlist : " +str(list1)
+
+def random_number():
+length = len(list1)
+random_no = random.andint(0, length-1)
+random_number_label["text"] = list1[random_no]
+generated_random_number = list1[random_no]
+lucky_friend["text"] = "your lucky friend is : " + str(generated_random_number)
+
+btn = Button(root, text="Add to the friendlist", command = addfriend)
+btn.place(relx= 0.5,rely = 0.3, anchor = CENTRE)
+
+friend_list.place(relx= 0.5,rely = 0.4,anchor = CENTE)
+
+btn1 = Button(root, text="Who is your lucky Friend? ", command = random_number)
+btn1.place(relx=0.5,rely = 0.5, anchor = CENTRE)
+
+random_number_label.place(elx= 0.5,rely = 0.6, anchor = CENTRE)
+lucky_friend.place(relx= 0.5,rely =0.7,anchor = CENTRE)
+
+root.mainloop()
